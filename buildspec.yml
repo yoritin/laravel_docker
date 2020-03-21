@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      - echo Installing source composer dependencies...
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php
+      - php -r "unlink('composer-setup.php');"
+      - mv composer.phar /usr/local/bin/composer
+      - cd www/api
+  pre_build:
+    commands:
+      - composer install
+      - echo Installing source NPM dependencies...
+  build:
+    commands:
+      - mv $ENV_FILE .env
+      - echo Running Test...
+      - ./vendor/bin/phpunit
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'www/api'
