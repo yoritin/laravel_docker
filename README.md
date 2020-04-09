@@ -16,6 +16,11 @@ cd app_name
 make in
 ```
 
+### .gitignoreが反映されない場合は
+```
+git rm -r --cached .
+```
+
 ## Laravelのインストール
 ```
 composer create-project --prefer-dist laravel/laravel ./
