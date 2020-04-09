@@ -5,6 +5,7 @@ git clone git@github.com:yoritin/laravel_docker.git app_name
 
 cd app_name
 ```
+[app_name]は適当に変更してください
 
 ## 変更箇所
 `docker-compose.yml`
