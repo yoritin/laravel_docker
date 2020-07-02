@@ -25,7 +25,7 @@ services:
     container_name: laravel_docker_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: docker_laravel_db
+      MYSQL_DATABASE: laravel_docker_db
       TZ: 'Asia/Tokyo'
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d
